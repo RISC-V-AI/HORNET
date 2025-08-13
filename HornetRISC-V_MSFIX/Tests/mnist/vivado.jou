@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Jun  4 15:08:18 2025
+# Process ID: 1150996
+# Current directory: /home/deniz/HornetRISC-V/test/mnist
+# Command line: vivado -mode batch -source run_sim.tcl -notrace
+# Log file: /home/deniz/HornetRISC-V/test/mnist/vivado.log
+# Journal file: /home/deniz/HornetRISC-V/test/mnist/vivado.jou
+# Running On        :fedora
+# Platform          :Fedora
+# Operating System  :Fedora Linux 42 (KDE Plasma Desktop Edition)
+# Processor Detail  :AMD Ryzen 5 8645HS w/ Radeon 760M Graphics
+# CPU Frequency     :2393.638 MHz
+# CPU Physical cores:6
+# CPU Logical cores :12
+# Host memory       :15969 MB
+# Swap memory       :8589 MB
+# Total Virtual     :24559 MB
+# Available Virtual :14501 MB
+#-----------------------------------------------------------
+source run_sim.tcl -notrace
+open_wave_config /home/deniz/HornetRISC-V/HornetRISCV-vivado/barebones_top_tb_behav.wcfg
+source barebones_top_tb.tcl
