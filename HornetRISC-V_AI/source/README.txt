@@ -18,9 +18,9 @@ The C program's main function is to:
 
 ## Hardware & Clock Constraints
 
-To ensure stable operation and meet timing, the RISC-V processor clock must be set to **10 MHz**.
+To ensure stable operation and meet timing, the RISC-V processor clock is set to be 10 MHz.
 
-The design **must** operate under a 20 MHz clock frequency to avoid timing failures.
+The design **must** operate in either 10MHz or 20MHz clock frequency to avoid timing failures.
 
 ---------------------------------
 
