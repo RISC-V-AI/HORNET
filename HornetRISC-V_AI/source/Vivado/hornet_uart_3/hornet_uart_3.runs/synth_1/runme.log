@@ -1,0 +1,812 @@
+
+*** Running vivado
+    with args -log fpga_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga_top.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Fri Oct 17 11:27:20 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source fpga_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 490.449 ; gain = 211.168
+Command: read_checkpoint -auto_incremental -incremental C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/utils_1/imports/synth_1/fpga_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/utils_1/imports/synth_1/fpga_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top fpga_top -part xc7a200tsbg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 14744
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1240.211 ; gain = 493.398
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-11065] parameter 'STAND_BY' becomes localparam in 'csr_unit' with formal parameter declaration list [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/csr_unit.v:47]
+WARNING: [Synth 8-11065] parameter 'S1' becomes localparam in 'csr_unit' with formal parameter declaration list [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/csr_unit.v:48]
+INFO: [Synth 8-6157] synthesizing module 'fpga_top' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.runs/synth_1/.Xil/Vivado-24628-DESKTOP-KB3PEIF/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.runs/synth_1/.Xil/Vivado-24628-DESKTOP-KB3PEIF/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'core_wb' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/core_wb.v:3]
+	Parameter reset_vector bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'core' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/core.v:1]
+	Parameter reset_vector bound to: 0 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'csr_unit' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/csr_unit.v:17]
+	Parameter reset_vector bound to: 0 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/csr_unit.v:382]
+INFO: [Synth 8-6155] done synthesizing module 'csr_unit' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/csr_unit.v:17]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/control_unit.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/control_unit.v:6]
+INFO: [Synth 8-6157] synthesizing module 'imm_decoder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/imm_decoder.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'imm_decoder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/imm_decoder.v:6]
+INFO: [Synth 8-6157] synthesizing module 'MULDIV_top' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MULDIV_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MULDIV_ctrl' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MULDIV_ctrl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MULDIV_ctrl' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MULDIV_ctrl.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MULDIV_in' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MULDIV_in.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MULDIV_in' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MULDIV_in.v:1]
+INFO: [Synth 8-6157] synthesizing module 'multiplier_32' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'multiplier_8' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_32.v:156]
+INFO: [Synth 8-6155] done synthesizing module 'multiplier_8' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_32.v:156]
+INFO: [Synth 8-6155] done synthesizing module 'multiplier_32' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'divider_32' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'div_control' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:104]
+INFO: [Synth 8-226] default block is never used [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:146]
+INFO: [Synth 8-6155] done synthesizing module 'div_control' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:104]
+INFO: [Synth 8-6157] synthesizing module 'div_block' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:92]
+INFO: [Synth 8-6157] synthesizing module 'div_array' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:73]
+INFO: [Synth 8-6155] done synthesizing module 'div_array' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:73]
+INFO: [Synth 8-6155] done synthesizing module 'div_block' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:92]
+INFO: [Synth 8-6155] done synthesizing module 'divider_32' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MULout' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MUL_DIV_out.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'MULout' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MUL_DIV_out.v:27]
+INFO: [Synth 8-6157] synthesizing module 'DIVout' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MUL_DIV_out.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'DIVout' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MUL_DIV_out.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MULDIV_top' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/MULDIV_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'hazard_detection_unit' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/hazard_detection_unit.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'hazard_detection_unit' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/hazard_detection_unit.v:7]
+INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/forwarding_unit.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/forwarding_unit.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/ALU.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/ALU.v:6]
+INFO: [Synth 8-6157] synthesizing module 'fpu_top' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_arithmetic_top' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_arithmetic_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_decoder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_decoder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_decoder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_decoder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_add_sub' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:9]
+INFO: [Synth 8-6157] synthesizing module 'add_sub_normalizer' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:232]
+INFO: [Synth 8-6157] synthesizing module 'lzc27' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:354]
+INFO: [Synth 8-6157] synthesizing module 'lzc8' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:327]
+INFO: [Synth 8-6157] synthesizing module 'lzc4' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:312]
+INFO: [Synth 8-6155] done synthesizing module 'lzc4' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:312]
+INFO: [Synth 8-6155] done synthesizing module 'lzc8' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:327]
+INFO: [Synth 8-6157] synthesizing module 'lzc3' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:390]
+INFO: [Synth 8-6155] done synthesizing module 'lzc3' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:390]
+INFO: [Synth 8-6155] done synthesizing module 'lzc27' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:354]
+INFO: [Synth 8-6155] done synthesizing module 'add_sub_normalizer' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:232]
+INFO: [Synth 8-6157] synthesizing module 'fpu_add_sub_rounder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub_rounder.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_add_sub_rounder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub_rounder.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_add_fast' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub_fast.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_add_fast' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub_fast.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_add_sub' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_add_sub.v:9]
+INFO: [Synth 8-6157] synthesizing module 'fpu_mds_top' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'preNorm_exp_handler' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_top.v:198]
+INFO: [Synth 8-6155] done synthesizing module 'preNorm_exp_handler' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_top.v:198]
+INFO: [Synth 8-6157] synthesizing module 'fpu_mul' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mul.v:2]
+INFO: [Synth 8-6157] synthesizing module 'multiplier_24' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'multiplier_6' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_24.v:145]
+INFO: [Synth 8-6155] done synthesizing module 'multiplier_6' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_24.v:145]
+INFO: [Synth 8-6155] done synthesizing module 'multiplier_24' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/multiplier_24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mulNormalizer' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mul.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'mulNormalizer' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mul.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_mul' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mul.v:2]
+INFO: [Synth 8-6157] synthesizing module 'mul_rounder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/mul_rounder.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'mul_rounder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/mul_rounder.v:2]
+INFO: [Synth 8-6157] synthesizing module 'fpu_div' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_div.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sigDiv' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_div_control' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:106]
+INFO: [Synth 8-226] default block is never used [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:148]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_div_control' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:106]
+INFO: [Synth 8-6157] synthesizing module 'fpu_div_block' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:92]
+INFO: [Synth 8-6157] synthesizing module 'fpu_div_array' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_div_array' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_div_block' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:92]
+INFO: [Synth 8-6155] done synthesizing module 'sigDiv' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/divider_24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'divNormalizer' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_div.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'divNormalizer' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_div.v:60]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_div' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_div.v:1]
+INFO: [Synth 8-6157] synthesizing module 'div_rounder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/div_rounder.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'div_rounder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/div_rounder.v:2]
+INFO: [Synth 8-6157] synthesizing module 'fpu_sqrt' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_sqrt.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sqrt_24' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sqrt_control' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_24.v:69]
+INFO: [Synth 8-6155] done synthesizing module 'sqrt_control' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_24.v:69]
+INFO: [Synth 8-6155] done synthesizing module 'sqrt_24' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'lzc44' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_sqrt.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'lzc44' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_sqrt.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_sqrt' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_sqrt.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sqrt_rounder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_rounder.v:2]
+INFO: [Synth 8-226] default block is never used [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_rounder.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'sqrt_rounder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/sqrt_rounder.v:2]
+INFO: [Synth 8-6157] synthesizing module 'mds_final_normalizer' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/mds_final_normalizer.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'mds_final_normalizer' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/mds_final_normalizer.v:2]
+INFO: [Synth 8-6157] synthesizing module 'fpu_mds_ctrl' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_ctrl.v:2]
+INFO: [Synth 8-226] default block is never used [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_ctrl.v:392]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_mds_ctrl' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_ctrl.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_mds_top' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_mds_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'fpu_compare' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_compare.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_compare' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_compare.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_min_max' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_min_max.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_min_max' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_min_max.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_sign_inj' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_sign_inj.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_sign_inj' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_sign_inj.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_cvt_to_int' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_int.v:1]
+INFO: [Synth 8-6157] synthesizing module 'cvrt_rounder' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_int.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'cvrt_rounder' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_int.v:72]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_cvt_to_int' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_int.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_cvt_to_float' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_float.v:1]
+INFO: [Synth 8-6157] synthesizing module 'lzc32' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_float.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'lzc32' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_float.v:52]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_cvt_to_float' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_cvt_to_float.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_classifier' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_classifier.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_classifier' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_classifier.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_arithmetic_top' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_arithmetic_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fpu_top_ctrl' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_top_ctrl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_top_ctrl' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_top_ctrl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fpu_top' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpu_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'load_store_unit' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/load_store_unit.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'load_store_unit' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/load_store_unit.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'core' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/core.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'core_wb' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/core_wb.v:3]
+WARNING: [Synth 8-7071] port 'tr_mem_data' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_mem_addr' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_reg_data' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_pc' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_instr' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'fflags' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_reg_addr' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_mem_len' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_valid' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_load' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_store' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7071] port 'tr_is_float' of module 'core_wb' is unconnected for instance 'core0' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+WARNING: [Synth 8-7023] instance 'core0' of module 'core_wb' has 39 connections declared, but only 27 given [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:193]
+INFO: [Synth 8-6157] synthesizing module 'memory_2rw_wb' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/memory_2rw_wb.v:2]
+	Parameter ADDR_WIDTH bound to: 18 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'aes_main.mem' is read successfully [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/memory_2rw_wb.v:89]
+INFO: [Synth 8-3876] $readmem data file 'aes_main.mem' is read successfully [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/memory_2rw_wb.v:80]
+INFO: [Synth 8-6155] done synthesizing module 'memory_2rw_wb' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/memory_2rw_wb.v:2]
+INFO: [Synth 8-6157] synthesizing module 'mtime_registers_wb' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/mtime_registers_wb.v:3]
+	Parameter mtime_adr bound to: 268468224 - type: integer 
+	Parameter mtimecmp_adr bound to: 268468232 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mtime_registers_wb' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/mtime_registers_wb.v:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_wb' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:3]
+	Parameter SYS_CLK_FREQ bound to: 10000000 - type: integer 
+	Parameter BAUD bound to: 115200 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'UART_TX' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:100]
+	Parameter CLKS_PER_BIT bound to: 86 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'UART_TX' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:100]
+INFO: [Synth 8-6157] synthesizing module 'UART_RX' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:252]
+	Parameter CLKS_PER_BIT bound to: 86 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'UART_RX' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:252]
+INFO: [Synth 8-6155] done synthesizing module 'uart_wb' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:3]
+INFO: [Synth 8-6157] synthesizing module 'loader_wb' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/loader_wb.v:3]
+	Parameter SYS_CLK_FREQ bound to: 10000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'loader_wb' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/loader_wb.v:3]
+INFO: [Synth 8-6157] synthesizing module 'gpio_wb' [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/gpio_wb.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'gpio_wb' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/gpio_wb.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'fpga_top' (0#1) [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/fpga_top.v:3]
+WARNING: [Synth 8-6014] Unused sequential element MEMWB_preg_mem_reg was removed.  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/core.v:821]
+WARNING: [Synth 8-7137] Register MEMWB_preg_dummy_reg in module core has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/core.v:850]
+WARNING: [Synth 8-7137] Register o_TX_Serial_reg in module UART_TX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:138]
+WARNING: [Synth 8-7137] Register r_Clock_Count_reg in module UART_TX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:140]
+WARNING: [Synth 8-7137] Register r_Bit_Index_reg in module UART_TX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:141]
+WARNING: [Synth 8-7137] Register r_TX_Data_reg in module UART_TX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:146]
+WARNING: [Synth 8-7137] Register r_Clock_Count_reg in module UART_RX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:287]
+WARNING: [Synth 8-7137] Register r_Bit_Index_reg in module UART_RX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:288]
+WARNING: [Synth 8-7137] Register o_RX_Byte_reg in module UART_RX has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:328]
+WARNING: [Synth 8-6014] Unused sequential element adr_reg was removed.  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/uart_wb.v:49]
+WARNING: [Synth 8-6014] Unused sequential element adr_reg was removed.  [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/gpio_wb.v:60]
+WARNING: [Synth 8-3848] Net wb_dat_o in module/entity gpio_wb does not have driver. [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/sources_1/imports/imports/HornetRV32IM.srcs/gpio_wb.v:32]
+WARNING: [Synth 8-7129] Port wb_dat_o[31] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[30] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[29] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[28] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[27] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[26] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[25] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[24] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[23] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[22] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[21] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[20] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[19] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[18] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[17] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[16] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[15] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[14] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[13] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[12] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[11] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[10] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[9] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[8] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[7] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[6] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[5] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[4] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[3] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[2] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[1] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_o[0] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[31] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[30] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[29] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[28] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[27] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[26] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[25] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[24] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[23] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[22] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[21] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[20] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[19] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[18] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[17] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[16] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[15] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[14] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[13] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[12] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[11] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[10] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[9] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[8] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[7] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[6] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[5] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[4] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[3] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[2] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[1] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[0] in module gpio_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_we_i in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[31] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[30] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[29] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[28] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[27] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[26] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[25] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[24] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[23] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[22] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[21] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[20] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[19] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[18] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[17] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[16] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[15] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[14] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[13] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[12] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[11] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[10] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[9] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[8] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[7] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[6] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[5] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[4] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[3] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[2] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[1] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_adr_i[0] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_i[31] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_i[30] in module loader_wb is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wb_dat_i[29] in module loader_wb is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1532.793 ; gain = 785.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1532.793 ; gain = 785.980
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1532.793 ; gain = 785.980
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.211 . Memory (MB): peak = 1532.793 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clkwiz0'
+Finished Parsing XDC File [c:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.gen/sources_1/ip/clk_wiz_0_1/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'clkwiz0'
+Parsing XDC File [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/constrs_1/imports/Downloads/Nexys-Video-Master.xdc]
+Finished Parsing XDC File [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/constrs_1/imports/Downloads/Nexys-Video-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.srcs/constrs_1/imports/Downloads/Nexys-Video-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/fpga_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/fpga_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1587.656 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1587.656 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1587.656 ; gain = 840.844
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a200tsbg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1587.656 ; gain = 840.844
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1587.656 ; gain = 840.844
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'MULDIV_ctrl'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'sqrt_control'
+INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'fpu_mds_ctrl'
+INFO: [Synth 8-802] inferred FSM for state register 'r_SM_Main_reg' in module 'UART_TX'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'loader_wb'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                           000001 |                              000
+                     DIV |                           000010 |                              001
+                 DIV_out |                           000100 |                              010
+                    MUL1 |                           001000 |                              011
+                    MUL2 |                           010000 |                              100
+                 MUL_out |                           100000 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'MULDIV_ctrl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                               00 |                               00
+                    LOAD |                               01 |                               01
+                     ITR |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'sqrt_control'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                    MUL1 |                              001 |                              011
+                    MUL2 |                              010 |                              100
+                 MUL_out |                              011 |                              101
+                     DIV |                              100 |                              001
+                 DIV_out |                              101 |                              010
+                    SQRT |                              110 |                              110
+                SQRT_out |                              111 |                              111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'sequential' in module 'fpu_mds_ctrl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+            TX_START_BIT |                              001 |                              001
+            TX_DATA_BITS |                              010 |                              010
+             TX_STOP_BIT |                              011 |                              011
+                 CLEANUP |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'r_SM_Main_reg' using encoding 'sequential' in module 'UART_TX'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                      S0 |                              000 |                              000
+                      S1 |                              100 |                              001
+                      S2 |                              011 |                              010
+                      S3 |                              010 |                              011
+                      S4 |                              001 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'loader_wb'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:43 . Memory (MB): peak = 1587.656 ; gain = 840.844
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   64 Bit       Adders := 1     
+	   2 Input   64 Bit       Adders := 1     
+	   3 Input   51 Bit       Adders := 1     
+	   3 Input   48 Bit       Adders := 1     
+	   2 Input   48 Bit       Adders := 1     
+	   3 Input   46 Bit       Adders := 1     
+	   2 Input   33 Bit       Adders := 1     
+	   3 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 25    
+	   3 Input   32 Bit       Adders := 8     
+	   2 Input   28 Bit       Adders := 2     
+	   3 Input   28 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 5     
+	   3 Input   24 Bit       Adders := 4     
+	   2 Input   17 Bit       Adders := 4     
+	   2 Input   13 Bit       Adders := 4     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 8     
+	   3 Input    9 Bit       Adders := 1     
+	   5 Input    9 Bit       Adders := 1     
+	   4 Input    9 Bit       Adders := 1     
+	   3 Input    8 Bit       Adders := 6     
+	   2 Input    8 Bit       Adders := 7     
+	   2 Input    7 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 4     
+	   2 Input    5 Bit       Adders := 6     
+	   2 Input    3 Bit       Adders := 3     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input     24 Bit         XORs := 2     
+	   2 Input      8 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 6     
++---Registers : 
+	               88 Bit    Registers := 1     
+	               64 Bit    Registers := 4     
+	               50 Bit    Registers := 2     
+	               46 Bit    Registers := 1     
+	               44 Bit    Registers := 2     
+	               32 Bit    Registers := 110   
+	               30 Bit    Registers := 1     
+	               16 Bit    Registers := 16    
+	               12 Bit    Registers := 19    
+	                9 Bit    Registers := 3     
+	                8 Bit    Registers := 3     
+	                7 Bit    Registers := 1     
+	                6 Bit    Registers := 3     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 5     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 35    
++---RAMs : 
+	            3750K Bit	(120000 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   88 Bit        Muxes := 2     
+	   2 Input   64 Bit        Muxes := 11    
+	   3 Input   64 Bit        Muxes := 2     
+	   2 Input   50 Bit        Muxes := 4     
+	   2 Input   47 Bit        Muxes := 1     
+	   2 Input   46 Bit        Muxes := 2     
+	   2 Input   44 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 205   
+	   4 Input   32 Bit        Muxes := 7     
+	   3 Input   32 Bit        Muxes := 6     
+	   5 Input   32 Bit        Muxes := 1     
+	   2 Input   30 Bit        Muxes := 2     
+	   2 Input   28 Bit        Muxes := 6     
+	   2 Input   27 Bit        Muxes := 5     
+	   2 Input   26 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 3     
+	   4 Input   25 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 2     
+	   2 Input   23 Bit        Muxes := 6     
+	   4 Input   16 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 3     
+	   2 Input   10 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 7     
+	   4 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 20    
+	   4 Input    8 Bit        Muxes := 3     
+	   5 Input    8 Bit        Muxes := 1     
+	   6 Input    8 Bit        Muxes := 1     
+	   3 Input    7 Bit        Muxes := 1     
+	   6 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 15    
+	   6 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 11    
+	   7 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 4     
+	   7 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 44    
+	   8 Input    3 Bit        Muxes := 1     
+	   3 Input    3 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 5     
+	   6 Input    3 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 2     
+	   6 Input    2 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 122   
+	   3 Input    2 Bit        Muxes := 5     
+	   8 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 203   
+	   6 Input    1 Bit        Muxes := 10    
+	   3 Input    1 Bit        Muxes := 11    
+	   4 Input    1 Bit        Muxes := 11    
+	   8 Input    1 Bit        Muxes := 4     
+	   5 Input    1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 740 (col length:100)
+BRAMs: 730 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-6841] Block RAM (memory/mem_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
+(address width (17) is more than optimal threshold of 12. Implementing using BWWE will require more logic and timing would be suboptimal. Please use attribute ram_decomp = power if BWWE is desired.)
+INFO: [Synth 8-3971] The signal "fpga_top/memory/mem_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:05:08 ; elapsed = 00:05:20 . Memory (MB): peak = 2251.129 ; gain = 1504.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object     | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|fpga_top    | memory/mem_reg | 117 K x 32(READ_FIRST) | W | R | 117 K x 32(READ_FIRST) | W | R | Port A and B     | 0      | 128    | 
++------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:05:16 ; elapsed = 00:05:28 . Memory (MB): peak = 2251.129 ; gain = 1504.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:05:27 ; elapsed = 00:05:39 . Memory (MB): peak = 2251.129 ; gain = 1504.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object     | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|fpga_top    | memory/mem_reg | 117 K x 32(READ_FIRST) | W | R | 117 K x 32(READ_FIRST) | W | R | Port A and B     | 0      | 128    | 
++------------+----------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_0_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_1_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_1_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_4 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_5 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_6 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_2_3_7 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_3_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_3_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_3_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance memory/mem_reg_3_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Common 17-14] Message 'Synth 8-7052' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:05:36 ; elapsed = 00:05:48 . Memory (MB): peak = 2291.922 ; gain = 1545.109
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:05:43 ; elapsed = 00:05:56 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:05:43 ; elapsed = 00:05:56 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:05:45 ; elapsed = 00:05:58 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:05:45 ; elapsed = 00:05:58 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:05:46 ; elapsed = 00:05:59 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:05:46 ; elapsed = 00:05:59 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |clk_wiz  |     1|
+|2     |CARRY4   |   768|
+|3     |LUT1     |   300|
+|4     |LUT2     |  1571|
+|5     |LUT3     |  1442|
+|6     |LUT4     |  1243|
+|7     |LUT5     |  1989|
+|8     |LUT6     |  6113|
+|9     |MUXF7    |   704|
+|10    |MUXF8    |    84|
+|11    |RAMB36E1 |   128|
+|105   |FDCE     |  4263|
+|106   |FDPE     |    14|
+|107   |FDRE     |    72|
+|108   |IBUF     |     2|
+|109   |OBUF     |     7|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:05:46 ; elapsed = 00:05:59 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:05:25 ; elapsed = 00:05:52 . Memory (MB): peak = 2304.570 ; gain = 1502.895
+Synthesis Optimization Complete : Time (s): cpu = 00:05:46 ; elapsed = 00:05:59 . Memory (MB): peak = 2304.570 ; gain = 1557.758
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.256 . Memory (MB): peak = 2313.707 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1684 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2322.355 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: f542f945
+INFO: [Common 17-83] Releasing license: Synthesis
+281 Infos, 129 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:05:55 ; elapsed = 00:06:21 . Memory (MB): peak = 2322.355 ; gain = 1814.379
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.051 . Memory (MB): peak = 2322.355 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/jsphtkn/hornet_uart_3/hornet_uart_3.runs/synth_1/fpga_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file fpga_top_utilization_synth.rpt -pb fpga_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 17 11:34:00 2025...
