@@ -76,12 +76,15 @@ To fit the program, the C compiler (linker) and the Vivado hardware (BRAM) **mus
 
 **Step 1: Vivado (Hardware)**
 In your memory module's Verilog file (e.g., `memory_2rw_wb.v`), you must define the total size of the BRAM.
-```verilog
+
+```
 parameter RAM_DEPTH = 120000;
+```
 
 WARNING: As noted, you must set this parameter directly in the memory module. Do not use a top-level ADDR_WIDTH parameter, as this is known to cause bugs in some Vivado versions.
 
-**Step 2: Linker Script (Software) The linksc.ld file partitions the 480KB of hardware memory into two sections for the software:
+**Step 2: Linker Script (Software) The linksc.ld file partitions the 480KB of hardware memory into two sections for the software:**
+```
 MEMORY
 {
     /* Code + Read-Only Data */
@@ -90,5 +93,6 @@ MEMORY
     /* Writable Data + Stack + Heap */
     RAM(WAIL) : ORIGIN = 0x00050000, LENGTH = 0x0001FFFC  /* ~128 KB */
 }
+```
 
 ROM: The program code (.text) and constants (.rodata) are placed here. This 320KB region is what inference_light.data will initialize.RAM: This 128KB region starts immediately after the ROM. It is used for all read/write data (.data, .sdata, .bss), the stack, and the heap.The total 448KB (320KB + 128KB) fits inside the 480KB block defined in Vivado.
