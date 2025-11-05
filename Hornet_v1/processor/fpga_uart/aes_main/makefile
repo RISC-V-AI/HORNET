@@ -1,0 +1,16 @@
+CC32=riscv32-unknown-elf
+CC64=riscv32-unknown-elf
+CCFLAGS=-march=rv32imf_zicsr -mabi=ilp32f -O3 -T linksc.ld -nostartfiles -ffunction-sections -fdata-sections -Wl,--gc-sections -o aes_main.elf
+
+build:
+	$(CC32)-gcc aes_main.c ../../../test/aes/aes.c ../../../lib/uart.c ../../../lib/irq.c crt0.s $(CCFLAGS)
+	$(CC32)-objcopy -O binary -j .init -j .text -j .rodata aes_main.elf aes_main.bin
+	../../../test/rom_generator aes_main.bin
+	mv aes_main.data aes_main.mem 
+
+multilib:
+	$(CC64)-gcc aes_main.c polyvec.c poly.c ntt.c reduce.c fips202.c sign.c packing.c rounding.c symmetric-shake.c ../../../lib/uart.c ../../../lib/irq.c crt0.s $(CCFLAGS)
+	$(CC64)-objcopy -O binary -j .init -j .text -j .rodata aes_main.elf aes_main.bin
+	../../../test/rom_generator aes_main.bin
+	mv aes_main.data aes_main.mem
+

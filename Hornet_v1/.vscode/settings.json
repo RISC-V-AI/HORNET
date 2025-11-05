@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "*.dpf": "yaml",
+        "poly.h": "c",
+        "stdint.h": "c",
+        "uart.h": "c",
+        "symmetric.h": "c",
+        "polyvec.h": "c",
+        "array": "c",
+        "string": "c",
+        "string_view": "c",
+        "ranges": "c",
+        "span": "c",
+        "stdio.h": "c"
+    }
+}

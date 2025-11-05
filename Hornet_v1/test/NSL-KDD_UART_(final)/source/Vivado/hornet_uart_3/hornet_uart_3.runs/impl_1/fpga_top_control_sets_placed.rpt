@@ -1,0 +1,183 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.1 (win64) Build 6140274 Thu May 22 00:12:29 MDT 2025
+| Date         : Fri Oct 17 11:36:05 2025
+| Host         : DESKTOP-KB3PEIF running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file fpga_top_control_sets_placed.rpt
+| Design       : fpga_top
+| Device       : xc7a200t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   105 |
+|    Minimum number of control sets                        |   105 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    43 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   105 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |    17 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    83 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              20 |            9 |
+| No           | No                    | Yes                    |            1319 |          483 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              41 |           25 |
+| Yes          | No                    | Yes                    |            2958 |         1703 |
+| Yes          | Yes                   | No                     |              11 |            3 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------+------------------------------------------------------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
+|      Clock Signal      |                                             Enable Signal                                            |              Set/Reset Signal              | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------+------------------------------------------------------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
+|  clkwiz0/inst/clk_out1 | loader0/reset_o_reg_9                                                                                |                                            |                1 |              1 |         1.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/trigger0                                                                                  | loader0/data_wb_rst_i                      |                1 |              1 |         1.00 |
+|  clkwiz0/inst/clk_out1 | uart0/uart_rx0/r_Clock_Count[6]_i_2__0_n_0                                                           | uart0/uart_rx0/r_Clock_Count[6]_i_1__0_n_0 |                1 |              4 |         4.00 |
+|  clkwiz0/inst/clk_out1 | loader0/reset_o_reg_9                                                                                | uart0/uart_tx0/r_Clock_Count[6]_i_1_n_0    |                2 |              7 |         3.50 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[47]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                4 |              8 |         2.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[31]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[15]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                3 |              8 |         2.67 |
+|  clkwiz0/inst/clk_out1 | uart0/uart_tx0/r_TX_Data[7]_i_1_n_0                                                                  |                                            |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[55]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[63]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                3 |              8 |         2.67 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[39]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[7]_i_1_n_0                                                                          | loader0/data_wb_rst_i                      |                4 |              8 |         2.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[23]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[31]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                6 |              8 |         1.33 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[15]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                4 |              8 |         2.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[39]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[47]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                4 |              8 |         2.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[63]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                3 |              8 |         2.67 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[55]_i_1_n_0                                                                      | loader0/data_wb_rst_i                      |                2 |              8 |         4.00 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtimecmp[7]_i_1_n_0                                                                       | loader0/data_wb_rst_i                      |                3 |              8 |         2.67 |
+|  clkwiz0/inst/clk_out1 | mtime_regs/mtime[23]_i_1_n_0                                                                         | loader0/data_wb_rst_i                      |                4 |              8 |         2.00 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/E[0]                                                                            | loader0/reset_o_reg_0                      |                6 |             15 |         2.50 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/mie[31]_i_1_n_0                                                                 | loader0/reset_o_reg_0                      |                7 |             19 |         2.71 |
+|  clkwiz0/inst/clk_out1 |                                                                                                      |                                            |                9 |             20 |         2.22 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[28][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[2][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[18][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               24 |             32 |         1.33 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[19][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[25][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[26][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               24 |             32 |         1.33 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/mepc[31]_i_1_n_0                                                                | loader0/reset_o_reg_0                      |               10 |             32 |         3.20 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/mscratch                                                                        | loader0/reset_o_reg_0                      |               12 |             32 |         2.67 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/p_0_out                                                                         | loader0/reset_o_reg_0                      |               15 |             32 |         2.13 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/mtvec                                                                           | loader0/reset_o_reg_0                      |               10 |             32 |         3.20 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[15][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/mcause[31]_i_1_n_0                                                              | loader0/reset_o_reg_0                      |                9 |             32 |         3.56 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[10][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+|  clkwiz0/inst/clk_out1 | core0/core0/fpu_top/fpu_arithmetic_top/fpu_mds_top/mds_ctrl/FSM_sequential_current_state_reg[2]_3[0] | loader0/reset_o_reg_0                      |                9 |             32 |         3.56 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[16][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[27][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/frm[31]_i_1_n_0                                                                 | loader0/reset_o_reg_0                      |                8 |             32 |         4.00 |
+|  clkwiz0/inst/clk_out1 | MEMWB_preg_memout_reg[31]_i_11_n_0                                                                   |                                            |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[12][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[11][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[1][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[26][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               17 |             32 |         1.88 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[2][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               17 |             32 |         1.88 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[13][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[14][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[9][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               26 |             32 |         1.23 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[21][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[30][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               28 |             32 |         1.14 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[5][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[6][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               19 |             32 |         1.68 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[7][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               24 |             32 |         1.33 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[8][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[22][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[16][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[15][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[24][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               17 |             32 |         1.88 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[25][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[18][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[27][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[28][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[19][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[20][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[29][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[31][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               25 |             32 |         1.28 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[10][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[4][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               17 |             32 |         1.88 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[23][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[17][31]_i_1_n_0                                                            | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/register_bank[3][31]_i_1_n_0                                                             | loader0/reset_o_reg_0                      |               16 |             32 |         2.00 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[29][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               24 |             32 |         1.33 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[31][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[4][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[5][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[7][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[8][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[30][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[9][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[17][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[6][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               20 |             32 |         1.60 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[3][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               19 |             32 |         1.68 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[20][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               18 |             32 |         1.78 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[22][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               24 |             32 |         1.33 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[12][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               17 |             32 |         1.88 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[1][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               19 |             32 |         1.68 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[0][31]_i_1_n_0                                                           | loader0/reset_o_reg_0                      |               17 |             32 |         1.88 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[14][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               19 |             32 |         1.68 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[24][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               21 |             32 |         1.52 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[13][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[11][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               23 |             32 |         1.39 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[21][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               22 |             32 |         1.45 |
+| ~clkwiz0/inst/clk_out1 | core0/core0/f_register_bank[23][31]_i_1_n_0                                                          | loader0/reset_o_reg_0                      |               27 |             32 |         1.19 |
+|  clkwiz0/inst/clk_out1 |                                                                                                      | loader0/wb_rst_i_4                         |               20 |             38 |         1.90 |
+|  clkwiz0/inst/clk_out1 | core0/core0/MULDIV/MULDIV_ctrl/rdy_reg[0]                                                            | loader0/reset_o_reg_0                      |               12 |             64 |         5.33 |
+|  clkwiz0/inst/clk_out1 | core0/core0/MULDIV/MULDIV_ctrl/E[0]                                                                  | loader0/reset_o_reg_0                      |               36 |             64 |         1.78 |
+|  clkwiz0/inst/clk_out1 | core0/core0/fpu_top/fpu_arithmetic_top/fpu_mds_top/mds_ctrl/E[0]                                     | loader0/reset_o_reg_0                      |               44 |             64 |         1.45 |
+|  clkwiz0/inst/clk_out1 | core0/core0/fpu_top/fpu_top_ctrl/reg_AB_en                                                           | loader0/reset_o_reg_0                      |               39 |             64 |         1.64 |
+|  clkwiz0/inst/clk_out1 | core0/core0/fpu_top/fpu_arithmetic_top/fpu_mds_top/fpu_sqrt/sqrt_24/control/E[0]                     | loader0/reset_o_reg_0                      |               25 |             69 |         2.76 |
+|  clkwiz0/inst/clk_out1 |                                                                                                      | loader0/data_wb_rst_i                      |               37 |             82 |         2.22 |
+|  clkwiz0/inst/clk_out1 | core0/core0/CSR_UNIT/IFID_preg_pc                                                                    | loader0/reset_o_reg_0                      |               55 |            112 |         2.04 |
+|  clkwiz0/inst/clk_out1 | core0/core0/fpu_top/fpu_arithmetic_top/fpu_mds_top/mds_ctrl/IDEX_preg_data1_sel                      | loader0/reset_o_reg_0                      |               41 |            118 |         2.88 |
+|  clkwiz0/inst/clk_out1 |                                                                                                      | loader0/reset_o_reg_0                      |              426 |           1199 |         2.81 |
++------------------------+------------------------------------------------------------------------------------------------------+--------------------------------------------+------------------+----------------+--------------+
+
+

@@ -1,0 +1,376 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+                              ../../libs/soc/utils.o (__udivdi3)
+/home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+                              /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o) (__clz_tab)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 hello.o
+ .data          0x00000000        0x0 hello.o
+ .bss           0x00000000        0x0 hello.o
+ .text          0x00000000        0x0 ../../libs/soc/gpio.o
+ .data          0x00000000        0x0 ../../libs/soc/gpio.o
+ .bss           0x00000000        0x0 ../../libs/soc/gpio.o
+ .text.gpio_init
+                0x00000000        0x8 ../../libs/soc/gpio.o
+ .text.gpio_set_direction
+                0x00000000        0xc ../../libs/soc/gpio.o
+ .text.gpio_get_input
+                0x00000000        0xc ../../libs/soc/gpio.o
+ .text.gpio_set_output
+                0x00000000        0xc ../../libs/soc/gpio.o
+ .text.gpio_set_pin
+                0x00000000       0x1c ../../libs/soc/gpio.o
+ .text.gpio_clear_pin
+                0x00000000       0x20 ../../libs/soc/gpio.o
+ .debug_info    0x00000000      0x1ec ../../libs/soc/gpio.o
+ .debug_abbrev  0x00000000       0xe9 ../../libs/soc/gpio.o
+ .debug_loclists
+                0x00000000       0x29 ../../libs/soc/gpio.o
+ .debug_aranges
+                0x00000000       0x48 ../../libs/soc/gpio.o
+ .debug_rnglists
+                0x00000000       0x31 ../../libs/soc/gpio.o
+ .debug_line    0x00000000      0x177 ../../libs/soc/gpio.o
+ .debug_str     0x00000000      0x1cc ../../libs/soc/gpio.o
+ .debug_line_str
+                0x00000000      0x104 ../../libs/soc/gpio.o
+ .comment       0x00000000       0x1c ../../libs/soc/gpio.o
+ .note.GNU-stack
+                0x00000000        0x0 ../../libs/soc/gpio.o
+ .debug_frame   0x00000000       0x70 ../../libs/soc/gpio.o
+ .riscv.attributes
+                0x00000000       0x2a ../../libs/soc/gpio.o
+ .text          0x00000000        0x0 ../../libs/soc/timer.o
+ .data          0x00000000        0x0 ../../libs/soc/timer.o
+ .bss           0x00000000        0x0 ../../libs/soc/timer.o
+ .text.timer_init
+                0x00000000        0x8 ../../libs/soc/timer.o
+ .text.timer_reset
+                0x00000000       0x10 ../../libs/soc/timer.o
+ .text.timer_start
+                0x00000000       0x10 ../../libs/soc/timer.o
+ .text.timer_stop
+                0x00000000        0xc ../../libs/soc/timer.o
+ .text.timer_clear
+                0x00000000       0x14 ../../libs/soc/timer.o
+ .text.timer_get_count
+                0x00000000        0xc ../../libs/soc/timer.o
+ .text.timer_set_count
+                0x00000000        0xc ../../libs/soc/timer.o
+ .debug_info    0x00000000      0x1cf ../../libs/soc/timer.o
+ .debug_abbrev  0x00000000       0xd7 ../../libs/soc/timer.o
+ .debug_loclists
+                0x00000000       0x29 ../../libs/soc/timer.o
+ .debug_aranges
+                0x00000000       0x50 ../../libs/soc/timer.o
+ .debug_rnglists
+                0x00000000       0x37 ../../libs/soc/timer.o
+ .debug_line    0x00000000      0x18c ../../libs/soc/timer.o
+ .debug_str     0x00000000      0x1be ../../libs/soc/timer.o
+ .debug_line_str
+                0x00000000      0x107 ../../libs/soc/timer.o
+ .comment       0x00000000       0x1c ../../libs/soc/timer.o
+ .note.GNU-stack
+                0x00000000        0x0 ../../libs/soc/timer.o
+ .debug_frame   0x00000000       0x80 ../../libs/soc/timer.o
+ .riscv.attributes
+                0x00000000       0x2a ../../libs/soc/timer.o
+ .text          0x00000000        0x0 ../../libs/soc/uart.o
+ .data          0x00000000        0x0 ../../libs/soc/uart.o
+ .bss           0x00000000        0x0 ../../libs/soc/uart.o
+ .text.uart_configure
+                0x00000000        0xc ../../libs/soc/uart.o
+ .text.uart_tx_ready
+                0x00000000       0x14 ../../libs/soc/uart.o
+ .text.uart_tx  0x00000000        0xc ../../libs/soc/uart.o
+ .text.uart_tx_string
+                0x00000000       0x30 ../../libs/soc/uart.o
+ .text.uart_rx_ready
+                0x00000000       0x10 ../../libs/soc/uart.o
+ .text.uart_rx  0x00000000       0x10 ../../libs/soc/uart.o
+ .text.uart_rx_line
+                0x00000000       0x40 ../../libs/soc/uart.o
+ .text.uart_puts
+                0x00000000       0x78 ../../libs/soc/uart.o
+ .text          0x00000000        0x0 ../../libs/soc/utils.o
+ .data          0x00000000        0x0 ../../libs/soc/utils.o
+ .bss           0x00000000        0x0 ../../libs/soc/utils.o
+ .text.usleep   0x00000000       0x54 ../../libs/soc/utils.o
+ .text.pcount_reset
+                0x00000000       0xfc ../../libs/soc/utils.o
+ .text.mtime_stop
+                0x00000000        0xc ../../libs/soc/utils.o
+ .text.mtime_start
+                0x00000000        0xc ../../libs/soc/utils.o
+ .text.mtime_get32
+                0x00000000       0x18 ../../libs/soc/utils.o
+ .text.mtime_get64
+                0x00000000       0x5c ../../libs/soc/utils.o
+ .text.cc2us    0x00000000       0xa0 ../../libs/soc/utils.o
+ .debug_info    0x00000000      0x249 ../../libs/soc/utils.o
+ .debug_abbrev  0x00000000      0x15e ../../libs/soc/utils.o
+ .debug_loclists
+                0x00000000      0x113 ../../libs/soc/utils.o
+ .debug_aranges
+                0x00000000       0x50 ../../libs/soc/utils.o
+ .debug_rnglists
+                0x00000000       0x45 ../../libs/soc/utils.o
+ .debug_line    0x00000000      0x1ed ../../libs/soc/utils.o
+ .debug_str     0x00000000      0x1f1 ../../libs/soc/utils.o
+ .debug_line_str
+                0x00000000       0xff ../../libs/soc/utils.o
+ .comment       0x00000000       0x1c ../../libs/soc/utils.o
+ .note.GNU-stack
+                0x00000000        0x0 ../../libs/soc/utils.o
+ .debug_frame   0x00000000       0x9c ../../libs/soc/utils.o
+ .riscv.attributes
+                0x00000000       0x37 ../../libs/soc/utils.o
+ .data          0x00000000        0x0 crt0.o
+ .bss           0x00000000        0x0 crt0.o
+ .text          0x00000000      0x3ec /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .data          0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .bss           0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_info    0x00000000      0x850 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00000000      0x1ad /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_loclists
+                0x00000000      0xb98 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x00000000       0x20 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_rnglists
+                0x00000000       0x9c /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_line    0x00000000      0xb27 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_str     0x00000000      0x273 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .debug_line_str
+                0x00000000       0xbc /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .comment       0x00000000       0x1c /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .note.GNU-stack
+                0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .eh_frame      0x00000000       0x28 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .riscv.attributes
+                0x00000000       0x2a /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_udivdi3.o)
+ .text          0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .data          0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .bss           0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .rodata        0x00000000      0x100 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_info    0x00000000       0xf2 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_abbrev  0x00000000       0x76 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_aranges
+                0x00000000       0x18 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_line    0x00000000       0x49 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_str     0x00000000      0x1c0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .debug_line_str
+                0x00000000       0xbc /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .comment       0x00000000       0x1c /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .note.GNU-stack
+                0x00000000        0x0 /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+ .riscv.attributes
+                0x00000000       0x2a /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a(_clz.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ram              0x00000000         0x00010000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD hello.o
+LOAD ../../libs/soc/gpio.o
+LOAD ../../libs/soc/timer.o
+LOAD ../../libs/soc/uart.o
+LOAD ../../libs/soc/utils.o
+LOAD crt0.o
+START GROUP
+LOAD /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libc.a
+LOAD /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libgloss.a
+LOAD /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/rv32im/ilp32/libgcc.a
+LOAD /home/gstl/opt/riscv/lib/gcc/riscv64-unknown-elf/15.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32/libsupc++.a
+END GROUP
+                0x00000000                        __DYNAMIC = 0x0
+                0x00004000                        _min_stack = 0x4000
+                0x0000fffc                        _stack_start = ((ORIGIN (ram) + LENGTH (ram)) - 0x4)
+
+.vectors        0x00000000       0x8c
+                0x00000000                        . = ALIGN (0x4)
+ *(.vectors)
+ .vectors       0x00000000       0x8c crt0.o
+
+.text           0x0000008c      0x7a4
+                0x0000008c                        . = ALIGN (0x4)
+                0x0000008c                        _stext = .
+ *(.text)
+ .text          0x0000008c       0xb4 crt0.o
+                0x00000114                _start
+ *(.text.*)
+ .text.main     0x00000140       0x4c hello.o
+                0x00000140                main
+ .text.uart_init
+                0x0000018c        0x8 ../../libs/soc/uart.o
+                0x0000018c                uart_init
+ .text.uart_set_baudrate
+                0x00000194       0x10 ../../libs/soc/uart.o
+                0x00000194                uart_set_baudrate
+ .text.uart_putchar
+                0x000001a4       0x20 ../../libs/soc/uart.o
+                0x000001a4                uart_putchar
+ .text.qprintchar
+                0x000001c4       0x38 ../../libs/soc/uart.o
+ .text.qprints  0x000001fc      0x160 ../../libs/soc/uart.o
+ .text.qprinti  0x0000035c      0x1e8 ../../libs/soc/uart.o
+ .text.uart_printf
+                0x00000544      0x2dc ../../libs/soc/uart.o
+                0x00000544                uart_printf
+                0x00000820                        _etext = .
+                0x00000820                        __CTOR_LIST__ = .
+                0x00000820        0x4 LONG 0x0 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
+ *(.ctors)
+                0x00000824        0x4 LONG 0x0
+                0x00000828                        __CTOR_END__ = .
+                0x00000828                        __DTOR_LIST__ = .
+                0x00000828        0x4 LONG 0x0 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
+ *(.dtors)
+                0x0000082c        0x4 LONG 0x0
+                0x00000830                        __DTOR_END__ = .
+ *(.lit)
+ *(.shdata)
+                0x00000830                        . = ALIGN (0x4)
+                0x00000830                        _endtext = .
+
+.rodata         0x00000830       0x9c
+                0x00000830                        . = ALIGN (0x4)
+ *(.rodata)
+ *(.rodata.*)
+ .rodata.main.str1.4
+                0x00000830       0x17 hello.o
+                                  0xf (size before relaxing)
+ .rodata.uart_printf.str1.4
+                0x00000847        0x7 ../../libs/soc/uart.o
+ *fill*         0x00000847        0x1 
+ .rodata.uart_printf
+                0x00000848       0x84 ../../libs/soc/uart.o
+
+.rela.dyn       0x000008cc        0x0
+ .rela.text     0x000008cc        0x0 hello.o
+
+.shbss          0x000008cc        0x0
+                0x000008cc                        . = ALIGN (0x4)
+ *(.shbss)
+
+.data           0x000008cc       0x10
+                0x000008cc                        . = ALIGN (0x4)
+                0x000008cc                        sdata = .
+                0x000008cc                        _sdata = .
+ *(.data)
+ *(.data.*)
+ .data.remu10_table
+                0x000008cc       0x10 ../../libs/soc/uart.o
+                0x000008cc                remu10_table
+                0x000008dc                        edata = .
+                0x000008dc                        _edata = .
+
+.bss            0x000008dc        0x4
+                0x000008dc                        . = ALIGN (0x4)
+                0x000008dc                        _bss_start = .
+ *(.bss)
+ *(.bss.*)
+ *(.sbss)
+ *(.sbss.*)
+ .sbss.uart0    0x000008dc        0x4 hello.o
+ *(COMMON)
+                0x000008e0                        _bss_end = .
+
+.stack          0x000008e0     0x4000
+                0x000008e0                        . = ALIGN (0x4)
+                0x000048e0                        . = (. + _min_stack)
+ *fill*         0x000008e0     0x4000 
+                0x000048e0                        . = ALIGN (0x4)
+                0x000048e0                        stack = .
+                0x000048e0                        _stack = .
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+OUTPUT(hello.elf elf32-littleriscv)
+
+.debug_info     0x00000000      0xcee
+ .debug_info    0x00000000      0x1a3 hello.o
+ .debug_info    0x000001a3      0xb28 ../../libs/soc/uart.o
+ .debug_info    0x00000ccb       0x23 crt0.o
+
+.debug_abbrev   0x00000000      0x4c3
+ .debug_abbrev  0x00000000      0x101 hello.o
+ .debug_abbrev  0x00000101      0x3b0 ../../libs/soc/uart.o
+ .debug_abbrev  0x000004b1       0x12 crt0.o
+
+.debug_aranges  0x00000000       0xd8
+ .debug_aranges
+                0x00000000       0x20 hello.o
+ .debug_aranges
+                0x00000020       0x90 ../../libs/soc/uart.o
+ .debug_aranges
+                0x000000b0       0x28 crt0.o
+
+.debug_rnglists
+                0x00000000       0xf5
+ .debug_rnglists
+                0x00000000       0x13 hello.o
+ .debug_rnglists
+                0x00000013       0xc7 ../../libs/soc/uart.o
+ .debug_rnglists
+                0x000000da       0x1b crt0.o
+
+.debug_line     0x00000000     0x1015
+ .debug_line    0x00000000       0x83 hello.o
+ .debug_line    0x00000083      0xe2f ../../libs/soc/uart.o
+ .debug_line    0x00000eb2      0x163 crt0.o
+
+.debug_str      0x00000000      0x2ca
+ .debug_str     0x00000000      0x2ca hello.o
+                                0x17f (size before relaxing)
+ .debug_str     0x000002ca      0x2c6 ../../libs/soc/uart.o
+ .debug_str     0x000002ca       0x5b crt0.o
+
+.debug_line_str
+                0x00000000      0x155
+ .debug_line_str
+                0x00000000      0x155 hello.o
+                                 0xef (size before relaxing)
+ .debug_line_str
+                0x00000155      0x14d ../../libs/soc/uart.o
+ .debug_line_str
+                0x00000155       0x4f crt0.o
+
+.comment        0x00000000       0x1b
+ .comment       0x00000000       0x1b hello.o
+                                 0x1c (size before relaxing)
+ .comment       0x0000001b       0x1c ../../libs/soc/uart.o
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 hello.o
+ .note.GNU-stack
+                0x00000000        0x0 ../../libs/soc/uart.o
+
+.riscv.attributes
+                0x00000000       0x37
+ .riscv.attributes
+                0x00000000       0x2a hello.o
+ .riscv.attributes
+                0x0000002a       0x2a ../../libs/soc/uart.o
+ .riscv.attributes
+                0x00000054       0x31 crt0.o
+
+.debug_frame    0x00000000      0x220
+ .debug_frame   0x00000000       0x28 hello.o
+ .debug_frame   0x00000028      0x1f8 ../../libs/soc/uart.o
+
+.debug_loclists
+                0x00000000      0xbea
+ .debug_loclists
+                0x00000000      0xbea ../../libs/soc/uart.o

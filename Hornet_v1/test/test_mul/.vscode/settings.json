@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "randombytes.h": "c",
+        "stdint.h": "c",
+        "fips202.h": "c",
+        "params.h": "c",
+        "sign.h": "c"
+    }
+}

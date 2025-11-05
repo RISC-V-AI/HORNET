@@ -1,0 +1,10 @@
+/HornetRISCV-vivado/*
+!/HornetRISCV-vivado/barebones_top_tb_behav.wcfg
+trace.log
+**/__pycache__
+**.backup.**
+**out_**
+test/riscv-dv/combined.csv
+test/riscv-dv/deneme.csv
+test/riscv-dv/spike_deneme.csv
+**spike.log
