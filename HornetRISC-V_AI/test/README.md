@@ -40,11 +40,13 @@ The main script (`NSL-KDD_light_send.py`) works by:
 
 This is the primary method for testing your FPGA hardware. It runs the full test suite and saves the hardware's predictions.
 
-Command:
+Command (Windows):
 ```
 python NSL-KDD_light_send.py --port COM3 --baud 115200 --inputs inputs.txt --labels labels.txt --bytes 488 --chunk 64 --delay 0.016 --output FPGA_results.txt
 ```
-(linux)
+!!! Carefull with the baud rate, Windows vs Linux baud rates may differ due to dirver errors.
+
+Command (Linux):
 ```
 python3 NSL-KDD_light_send.py --port /dev/ttyUSB0  --baud 115200 --inputs inputs.txt --labels labels.txt --bytes 488 --chunk 64 -
 -delay 0.016 --output FPGA_results.txt
@@ -64,7 +66,7 @@ This test lasted about 20 mins on Nexys Video FPGA. Tested with the original NSl
 
 NOTE: To find the correct USB port, you can use the pyserail command:
 ```
-usr@usr:~/file/location$ pyserial-ports
+pyserial-ports
 ```
 /dev/ttyS0          
 /dev/ttyS1          
@@ -110,12 +112,17 @@ After running the HIL test (and your local C test to generate `label_results.txt
 This script compares the three label files and generates three separate reports, including accuracy, F1-score, and a confusion matrix for each. (REMEMBER: For this 
 reports, you may need to install scikit-learn library: pip install scikit-learn)
 
-Command:
+Command (Windows):
 
 ```
 python compare_all.py --truth labels.txt --c-local label_results.txt --fpga-uart FPGA_results.txt
 ```
 
+Command (Linux):
+
+```
+python3 compare_all.py --truth labels.txt --c-local label_results.txt --fpga-uart FPGA_results.txt
+```
 ### How to Read the Reports:
 
 1.  **Report 1: Truth vs. C-Local (`label_results.txt`)**
