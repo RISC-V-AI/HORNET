@@ -41,8 +41,14 @@ The main script (`NSL-KDD_light_send.py`) works by:
 This is the primary method for testing your FPGA hardware. It runs the full test suite and saves the hardware's predictions.
 
 Command:
-
+```
 python NSL-KDD_light_send.py --port COM3 --baud 115200 --inputs inputs.txt --labels labels.txt --bytes 488 --chunk 64 --delay 0.016 --output FPGA_results.txt
+```
+(linux)
+```
+python3 NSL-KDD_light_send.py --port /dev/ttyUSB0  --baud 115200 --inputs inputs.txt --labels labels.txt --bytes 488 --chunk 64 -
+-delay 0.016 --output FPGA_results.txt
+```
 
 Argument Explanation:
 * `--port COM3`: The COM port your FPGA is connected to (e.g., `COM3`, `COM5`, or `/dev/ttyUSB0` on Linux).
@@ -55,6 +61,46 @@ Argument Explanation:
 
 This test lasted about 20 mins on Nexys Video FPGA. Tested with the original NSl-KDD test dataset with 22543 inputs.
 
+
+NOTE: To find the correct USB port, you can use the pyserail command:
+```
+usr@usr:~/file/location$ pyserial-ports
+```
+/dev/ttyS0          
+/dev/ttyS1          
+/dev/ttyS2          
+/dev/ttyS3          
+/dev/ttyS4          
+/dev/ttyS5          
+/dev/ttyS6          
+/dev/ttyS7          
+/dev/ttyS8          
+/dev/ttyS9          
+/dev/ttyS10         
+/dev/ttyS11         
+/dev/ttyS12         
+/dev/ttyS13         
+/dev/ttyS14         
+/dev/ttyS15         
+/dev/ttyS16         
+/dev/ttyS17         
+/dev/ttyS18         
+/dev/ttyS19         
+/dev/ttyS20         
+/dev/ttyS21         
+/dev/ttyS22         
+/dev/ttyS23         
+/dev/ttyS24         
+/dev/ttyS25         
+/dev/ttyS26         
+/dev/ttyS27         
+/dev/ttyS28         
+/dev/ttyS29         
+/dev/ttyS30         
+/dev/ttyS31         
+/dev/ttyUSB0     <------------------------- This is your Serial Port (in Windows these will be COM(N) ports find iteratively)  
+33 ports found
+
 ---------------------------------
 
 ## Verification & Validation (V&V)
@@ -66,7 +112,9 @@ reports, you may need to install scikit-learn library: pip install scikit-learn)
 
 Command:
 
+```
 python compare_all.py --truth labels.txt --c-local label_results.txt --fpga-uart FPGA_results.txt
+```
 
 ### How to Read the Reports:
 
