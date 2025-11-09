@@ -38,8 +38,14 @@ The Python script executes a full pipeline necessary for preparing an embedded A
 You need Python 3.8+ and the following libraries installed:
 
 ```
-pip3 install pandas numpy tensorflow matplotlib scikit-learn
+pip3 install pandas numpy tensorflow matplotlib scikit-learn pydot
 ```
+
+Download graphviz according to your operating system:
+```
+https://graphviz.gitlab.io/download/
+```
+
 ### Running the Script
 1. Place all five files (.py and four .csv files) in the same directory.
 
