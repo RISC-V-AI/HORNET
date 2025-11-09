@@ -52,6 +52,65 @@ This allows the model's data file (which is compiled into the firmware) to be ap
 
 ---------------------------------
 
+## 🛠️ RISC-V Toolchain Installation
+
+Before you can use the `Makefile` to build the firmware, you need the RISC-V cross-compiler (e.g., `riscv32-unknown-elf-gcc`). This is not a standard tool and must be built from the source.
+
+These steps are for a Linux-based system (like Ubuntu 22.04).
+
+### 1. Install Prerequisites
+
+First, you need to install all the build tools that the compiler needs to build itself.
+
+```
+sudo apt-get install git autoconf automake autotools-dev curl \
+libmpc-dev libmpfr-dev libgmp-dev gawk build-essential \
+bison flex texinfo gperf libtool patchutils bc zlib1g-dev \
+libexpat-dev
+```
+### 2. Download and Configure
+Next, download the toolchain source code and configure it for our specific processor.
+```
+git clone [https://github.com/riscv/riscv-gnu-toolchain](https://github.com/riscv/riscv-gnu-toolchain)
+cd riscv-gnu-toolchain
+git submodule update --init --recursive
+```
+Configure the build:
+We are building a "Newlib" toolchain for bare-metal (no OS)
+--with-arch=rv32imf: Target RV32 + Integer + Multiply + Single-Float
+--with-abi=ilp32f: ABI for 32-bit floats
+--enable-multilib: Allows building libraries for different variations
+--prefix=/opt/riscv sets the final install location.
+```
+./configure --prefix=/opt/riscv --enable-multilib --with-arch=rv32imf --with-abi=ilp32f
+```
+### 3. Compile (This takes a long time!) ☕
+Now, run make to compile the entire toolchain. This can take 30 minutes to over an hour.
+
+To speed it up, use the -j flag to tell make how many processor threads to use. Using $(nproc) will automatically use all available cores.
+
+
+
+```
+make -j$(nproc)
+```
+
+### 4. Update Your PATH
+Finally, you need to tell your terminal where to find the new compiler.
+
+```
+# Add this line to the end of your ~/.bashrc file
+export PATH="$PATH:/opt/riscv/bin"
+
+# Apply the change to your current terminal
+source ~/.bashrc
+```
+To check if it worked, open a new terminal and type 
+```
+riscv32-unknown-elf-gcc --version
+```
+ If it prints the compiler information, you are ready to build the firmware!
+
 ## Makefile Specs
 
 The `Makefile` automates the entire compilation and deployment process.
