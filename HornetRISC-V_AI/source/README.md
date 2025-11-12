@@ -180,4 +180,4 @@ RAM: The 128KB region for all read/write data (.data, .bss), the stack, and the 
 The total 448KB fits inside the 480KB block defined in Vivado.
 
 ### 🧩 Customizing Peripherals
-The barebones module is intentionally simple. If you wish to add more peripherals (like UART, IRQ, etc.) for simulation, you should use the fpga_top module and its Verilog files as a reference for how to instantiate and connect them
+The barebones module is intentionally simple. If you wish to add more peripherals (like UART, IRQ, etc.) for simulation, you can, manually. Use fpga_top Verilog files as a reference for how to instantiate and connect them.
