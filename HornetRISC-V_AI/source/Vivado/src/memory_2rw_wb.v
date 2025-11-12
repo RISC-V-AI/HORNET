@@ -28,7 +28,7 @@ input         port1_wb_clk_i);
 
 parameter NUM_WMASKS = 4 ;
 parameter DATA_WIDTH = 32 ;
-parameter ADDR_WIDTH = 10 ;
+parameter ADDR_WIDTH = 18 ;
 parameter RAM_DEPTH = 120000;//1 << ADDR_WIDTH;
 
 wire clk0; // clock
@@ -77,7 +77,7 @@ reg port1_ack;
 always @(posedge port1_wb_clk_i or posedge port1_wb_rst_i)
 begin
     if(port1_wb_rst_i) begin
-            $readmemh("memory_init.mem",mem);
+            $readmemh("memory_init_tb.mem",mem);
             port1_ack <= 1'b0; 
         end
     else if(port1_wb_cyc_i)
@@ -86,7 +86,7 @@ end
 assign port1_wb_ack_o = port1_ack;
 assign port1_wb_err_o = 1'b0;
 
-initial $readmemh("memory_init.mem",mem);
+initial $readmemh("memory_init_tb.mem",mem);
 
 //`ifdef FPGA_READMEM
 //initial $readmemh("reset_handler.mem",mem,7424,7487);

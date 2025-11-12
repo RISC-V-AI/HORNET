@@ -5,7 +5,7 @@ module barebones_wb_top(input clk_i,
                         output irq_ack_o);
 
 parameter NUM_SLAVES = 4;
-parameter reset_vector = 32'h0001_0000; //The starting address for the program counter
+parameter reset_vector = 32'h0000_0000; //The starting address for the program counter
 wire mtip;
 
 //Wishbone master interface signals for core
@@ -53,17 +53,17 @@ reg [NUM_SLAVES-1 : 0] r_stb;
 wire [31:0] slave_adr_begin [NUM_SLAVES-1 : 0];
 wire [31:0] slave_adr_end [NUM_SLAVES-1 : 0];
 
-assign slave_adr_begin[0] = 32'h0000_0000 + reset_vector;
-assign slave_adr_end[0] = 32'h0000_6FFF + reset_vector;
+assign slave_adr_begin[0] = 32'h0000_0000;
+assign slave_adr_end[0] = 32'h1000_0000;
 
-assign slave_adr_begin[1] = 32'h0000_0000 + reset_vector;
-assign slave_adr_end[1] = 32'h0000_7FFF + reset_vector;
+assign slave_adr_begin[1] = 32'h0000_0000;
+assign slave_adr_end[1] = 32'h1000_0000;
 
-assign slave_adr_begin[2] = 32'h0000_8000;
-assign slave_adr_end[2] = 32'h0000_800F;
+assign slave_adr_begin[2] = 32'h1000_8000;
+assign slave_adr_end[2] = 32'h1000_800F;
 
-assign slave_adr_begin[3] = 32'h0000_8010;
-assign slave_adr_end[3] = 32'h0000_8010;
+assign slave_adr_begin[3] = 32'h1000_8010;
+assign slave_adr_end[3] = 32'h1000_8010;
 
 assign wb_cyc_i[0] = inst_wb_cyc_o;
 assign wb_stb_i[0] = inst_wb_stb_o && ((slave_adr_begin[0] <= wb_adr_i[0]) && (wb_adr_i[0] <= slave_adr_end[0])); //0 if out of instruction address range
@@ -231,7 +231,7 @@ tracer tracer(.clk_i(clk_i),
                 .mem_data(tr_mem_data),
                 .fpu_flags(fflags));
 
-memory_2rw_wb #(.ADDR_WIDTH(14)) memory(.port0_wb_cyc_i(wb_cyc_i[0]),
+memory_2rw_wb #(.ADDR_WIDTH(18)) memory(.port0_wb_cyc_i(wb_cyc_i[0]),
                                         .port0_wb_stb_i(wb_stb_i[0]),
                                         .port0_wb_we_i(wb_we_i[0]),
                                         .port0_wb_adr_i(wb_adr_i[0]),

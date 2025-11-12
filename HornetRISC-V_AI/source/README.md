@@ -1,22 +1,17 @@
 RISC-V Edge AI: C Firmware & Build System
 =========================================
 
-## Overview
+##  overview Overview
 
 This directory contains all the C source code, headers, and build scripts necessary to compile the firmware for the RISC-V processor. This firmware is responsible for running the "lightweight" neural network model (`model_infer`).
 
-The C program's main function is to:
-1.  Initialize the UART and interrupt controller.
-2.  Run one hard-coded inference test at boot and send the result (for a quick self-test).
-3.  Enter an infinite loop, enabling interrupts.
-4.  Wait until the UART interrupt handler has received a full input vector (488 bytes) from the host PC.
-5.  Run the `model_infer` function on the new data.
-6.  Transmit the 1-byte result back to the host PC.
-7.  Reset the counter and wait for the next vector.
+This project is divided into two main workflows:
+1.  **`fpga_top/`**: A full-featured build designed for FPGA synthesis and implementation. It includes UART, interrupts, and all peripherals.
+2.  **`barebones_tb/`**: A lightweight build for fast behavioral simulation. It removes complex peripherals (like UART/IRQ) and uses a special debug interface to control the testbench.
 
 ---------------------------------
 
-## Hardware & Clock Constraints
+## ⏱️ Hardware & Clock Constraints
 
 To ensure stable operation and meet timing, the RISC-V processor clock is set to be 10 MHz.
 
@@ -24,125 +19,144 @@ The design **must** operate in either 10MHz or 20MHz clock frequency to avoid ti
 
 ---------------------------------
 
-## Core Components & File Descriptions
-
-* `inference_light.c`: This is the main firmware file. It contains the `main` loop, the `fast_irq0_handler` (Interrupt Service Routine), and the complete implementation of the neural network (`model_infer`). It orchestrates receiving data, running the model, and sending the result.
-
-* `uart.c` / `uart.h`: These are the driver files for the UART peripheral. They provide low-level functions like `uart_init()` and `uart_transmit_byte()` that directly interact with the UART hardware's memory-mapped registers.
-
-* `irq.c` / `irq.h`: These files manage the RISC-V's interrupt system. They are responsible for setting up the interrupt controller, defining the interrupt vector table (e.g., `fast_irq0_handler`), and providing functions to enable/disable interrupts (`ENABLE_GLOBAL_IRQ`, `DISABLE_GLOBAL_IRQ`, etc.).
-
-* `crt0.s`: The "C Runtime" startup file. This is the very first code that runs on the CPU. Its job is to set up the stack pointer and call the `main` function in `inference_light.c`.
-
-* `linksc.ld`: The linker script. This is a critical file that tells the compiler *how* to organize the final program in memory. (See "Memory Configuration" section).
-
-* `Makefile`: The build automation script. (See "Makefile Specs" section).
-
-* `inference_light.data`: This is an **output file**, not a source file. It is the final binary program (`.elf`) converted into a hex-text format that Vivado's BRAM can read to initialize its memory.
-
----------------------------------
-
-## `inference_light.c` - Optimization
-
-This firmware implements `model_infer`, a "lightweight" model that is significantly more efficient than previous versions. The optimization comes from the model's **architecture**, which is then implemented by this C code.
-
-This new model uses techniques like Batch Normalization and a tuned 5-layer structure (122 -> 256 -> 128 -> 64 -> 32 -> 5). By "baking" normalization parameters into the model, the total size of the required weights and biases is dramatically reduced.
-
-This allows the model's data file (which is compiled into the firmware) to be approximately **78k** instead of a much larger unoptimized version (e.g., 240k), all while maintaining the same prediction accuracy. The C code is a direct, efficient implementation of this new, smaller model.
-
----------------------------------
-
 ## 🛠️ RISC-V Toolchain Installation
 
-Before you can use the `Makefile` to build the firmware, you need the RISC-V cross-compiler (e.g., `riscv32-unknown-elf-gcc`). This is not a standard tool and must be built from the source.
-
-These steps are for a Linux-based system (like Ubuntu 22.04).
+Before you can build, you need the RISC-V cross-compiler (e.g., `riscv32-unknown-elf-gcc`).
 
 ### 1. Install Prerequisites
 
-First, you need to install all the build tools that the compiler needs to build itself.
-
 ```
-sudo apt-get install git autoconf automake autotools-dev curl \
-libmpc-dev libmpfr-dev libgmp-dev gawk build-essential \
-bison flex texinfo gperf libtool patchutils bc zlib1g-dev \
-libexpat-dev
+sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip python3-tomli libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev libslirp-dev
 ```
 ### 2. Download and Configure
-Next, download the toolchain source code and configure it for our specific processor.
+
 ```
-git clone [https://github.com/riscv/riscv-gnu-toolchain](https://github.com/riscv/riscv-gnu-toolchain)
-cd riscv-gnu-toolchain
+git clone https://github.com/riscv/riscv-gnu-toolchain 
+cd riscv-gnu-toolchain 
 git submodule update --init --recursive
 ```
-Configure the build:
-We are building a "Newlib" toolchain for bare-metal (no OS)
---with-arch=rv32imf: Target RV32 + Integer + Multiply + Single-Float
---with-abi=ilp32f: ABI for 32-bit floats
---enable-multilib: Allows building libraries for different variations
---prefix=/opt/riscv sets the final install location.
+Configure for RV32IMF (Integer, Multiply, Single-Float)
 ```
 ./configure --prefix=/opt/riscv --enable-multilib --with-arch=rv32imf --with-abi=ilp32f
 ```
+
 ### 3. Compile (This takes a long time!) ☕
-Now, run make to compile the entire toolchain. This can take 30 minutes to over an hour.
-
-To speed it up, use the -j flag to tell make how many processor threads to use. Using $(nproc) will automatically use all available cores.
-
-
 
 ```
 make -j$(nproc)
 ```
-
 ### 4. Update Your PATH
-Finally, you need to tell your terminal where to find the new compiler.
 
+Add this line to the end of your ~/.bashrc file
 ```
-# Add this line to the end of your ~/.bashrc file
 export PATH="$PATH:/opt/riscv/bin"
+```
 
-# Apply the change to your current terminal
+Apply the change to your current terminal
+```
 source ~/.bashrc
 ```
-To check if it worked, open a new terminal and type 
+
+Check if it worked
 ```
 riscv32-unknown-elf-gcc --version
 ```
- If it prints the compiler information, you are ready to build the firmware!
+---------------------------------
 
-## Makefile Specs
+## ⚙️ Workflow 1: FPGA Implementation (fpga_top)
 
-The `Makefile` automates the entire compilation and deployment process.
+This build is for the full hardware implementation on an FPGA.
 
-* **`build` (Primary Target):** This is the main command to build the FPGA firmware.
-    1.  `$(CC32)-gcc ...`: Compiles all C and assembly files (`.c`, `.s`) into a single `inference_light.elf` file.
-        * `-O3`: Enables high-level code optimization.
-        * `-T linksc.ld`: Tells the linker to use our custom `linksc.ld` memory map.
-        * `-Wl,--gc-sections`: "Garbage collects" any unused functions or data, reducing the final file size.
-    2.  `$(CC32)-objcopy ...`: Extracts the raw, runnable binary code and read-only data from the `.elf` file and saves it as `inference_light.bin`.
-    3.  `../rom_generator ...`: A custom utility that converts the `.bin` file into the Verilog-readable hex format, creating `inference_light.data`.
-    4.  `cp ...`: Copies the final `inference_light.data` file into the Vivado project's memory initialization directory.
+### Core Components
+Located in `fpga_top/`, this build includes:
 
-* **`comp` (Test Target):**
-    * `gcc inference_light.c ...`: A simple command to compile the C code *on your host PC* (Linux/Windows). This is used for **local debugging** of the `model_infer` logic, completely separate from the FPGA.
+| File | Description |
+| :--- | :--- |
+| `inference_light.c` | Main firmware with `main` loop and AI model. |
+| `uart.c` / `uart.h` | Drivers for the UART peripheral (for PC communication). |
+| `irq.c` / `irq.h` | Handlers for the interrupt system. |
+| `crt0.s` | C runtime startup file. |
+| `Makefile` | Builds firmware and creates the `memory_init.mem` for Vivado. |
+
+The C program's main function is to:
+1.  Initialize UART and interrupts.
+2.  Run one hard-coded inference test at boot.
+3.  Enter an infinite loop, waiting for UART interrupts.
+4.  Receive a full input vector (488 bytes) from the host PC.
+5.  Run the `model_infer` function on the new data.
+6.  Transmit the 1-byte result back to the host PC.
+
+### Makefile Specs (`fpga_top/Makefile`)
+* **`build` (Primary Target):**
+    1.  `$(CC32)-gcc ...`: Compiles all C/assembly files into `inference_light.elf`.
+    2.  `$(CC32)-objcopy ...`: Extracts the binary into `inference_light.bin`.
+    3.  `../rom_generator ...`: Converts the `.bin` to `inference_light.data`.
+    4.  `cp ...`: Copies `inference_light.data` to the Vivado project's memory initialization file (e.g., `memory_init.mem`).
 
 ---------------------------------
 
-## Memory Configuration (Vivado & Linker)
+## 🔬 Workflow 2: Behavioral Simulation (barebones_tb)
 
-To fit the program, the C compiler (linker) and the Vivado hardware (BRAM) **must** have the exact same memory layout. This is configured in two places:
+This build is for running fast behavioral simulations in Vivado. It is a minimal system that **does not use UART or interrupts**.
+
+### Core Components
+Located in `barebones_tb/`:
+
+| File | Description |
+| :--- | :--- |
+| `inference_light.c` | A modified main program. Runs the AI model and ends the simulation. |
+| `Makefile` | Builds the simulation-specific firmware (`memory_init_tb.mem`). |
+
+### Peripherals
+The `barebones_wb_top` Verilog module is minimal and contains 3 peripherals:
+1.  Memory
+2.  `mtime` (Machine Timer)
+3.  `debug_if` (Debug Interface)
+
+### 🐞 Simulation Control via Debug Interface
+This build uses a custom debug peripheral to control the simulation.
+* **Address:** The debug interface (`debug_if`) is mapped to address `0x10008010`.
+* **C Code:** The `barebones_tb/inference_light.c` file writes a value (e.g., `1`) to this address after its tasks are complete.
+* **Verilog Testbench:** The `barebones_wb_top_tb.v` testbench monitors this address. When it detects a write, it calls `$finish` to end the simulation gracefully.
+
+> **Check `barebones_tb/inference_light.c`** for the specific implementation of this debug feature.
+
+### Makefile Specs (`barebones_tb/Makefile`)
+* **`build` (Primary Target):**
+    ```
+    CC32=riscv32-unknown-elf
+    CCFLAGS=-march=rv32imf -mabi=ilp32f -ffp-contract=off -mstrict-align -malign-data=xlen -O3 -fno-math-errno -T ../linksc.ld -lm -nostartfiles -ffunction-sections -fdata-sections -Wl,--gc-sections -o inference_light.elf
+    
+    build:
+        $(CC32)-gcc inference_light.c ../crt0.s $(CCFLAGS)
+        $(CC32)-objcopy -O binary -j .init -j .text -j .rodata -j .sdata inference_light.elf inference_light.bin
+        ../rom_generator inference_light.bin
+        cp inference_light.data memory_init_tb.mem
+    ```
+* **Key Difference:** This makefile creates `inference_light.data` and **copies it to `memory_init_tb.mem`**. This is the memory file you must use for your behavioral simulation. It is separate from the `memory_init.mem` used for the FPGA.
+
+---------------------------------
+
+## 📦 Common Components
+
+### 🧠 `inference_light.c` - AI Model Optimization
+Both firmware versions implement `model_infer`, a "lightweight" neural network model.
+* The model uses Batch Normalization and a 5-layer structure (122 -> 256 -> 128 -> 64 -> 32 -> 5).
+* By "baking" normalization parameters into the model, the total size of the weights is reduced to approximately **78k**.
+* The C code is a direct implementation of this new, smaller model.
+
+### 💾 Memory Configuration (Vivado & Linker)
+The C compiler (linker) and the Vivado hardware (BRAM) **must** have the same memory layout. This is defined by `linksc.ld` (used by both builds) and the Verilog hardware.
 
 **Step 1: Vivado (Hardware)**
-In your memory module's Verilog file (e.g., `memory_2rw_wb.v`), you must define the total size of the BRAM.
-
-```
+In your memory module (`memory_2rw_wb.v`), you must define the total BRAM size.
+```verilog
 parameter RAM_DEPTH = 120000;
 ```
 
-WARNING: As noted, you must set this parameter directly in the memory module. Do not use a top-level ADDR_WIDTH parameter, as this is known to cause bugs in some Vivado versions.
+WARNING: You must set this parameter directly in the memory module. Do not use a top-level ADDR_WIDTH parameter, as this is known to cause bugs in some Vivado versions.
 
-**Step 2: Linker Script (Software) The linksc.ld file partitions the 480KB of hardware memory into two sections for the software:**
+**Step 2: Linker Script (Software) The linksc.ld file partitions the 480KB of hardware memory:**
 ```
 MEMORY
 {
@@ -153,5 +167,11 @@ MEMORY
     RAM(WAIL) : ORIGIN = 0x00050000, LENGTH = 0x0001FFFC  /* ~128 KB */
 }
 ```
+ROM: The program code (.text) and constants (.rodata). This 320KB region is initialized by inference_light.data.
 
-ROM: The program code (.text) and constants (.rodata) are placed here. This 320KB region is what inference_light.data will initialize.RAM: This 128KB region starts immediately after the ROM. It is used for all read/write data (.data, .sdata, .bss), the stack, and the heap.The total 448KB (320KB + 128KB) fits inside the 480KB block defined in Vivado.
+RAM: The 128KB region for all read/write data (.data, .bss), the stack, and the heap.
+
+The total 448KB fits inside the 480KB block defined in Vivado.
+
+### 🧩 Customizing Peripherals
+The barebones module is intentionally simple. If you wish to add more peripherals (like UART, IRQ, etc.) for simulation, you should use the fpga_top module and its Verilog files as a reference for how to instantiate and connect them
