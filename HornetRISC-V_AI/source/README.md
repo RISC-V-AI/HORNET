@@ -160,7 +160,7 @@ In your memory module (`memory_2rw_wb.v`), you must define the total BRAM size.
 parameter RAM_DEPTH = 120000;
 ```
 
-WARNING: You must set this parameter directly in the memory module. Do not use a top-level ADDR_WIDTH parameter, as this is known to cause bugs in some Vivado versions. However, your ADDR_WIDTH in the top_module must contain (or overflow) your memory by the means of log2. 2^18 = 262144 > 120000 
+WARNING: You must set this parameter directly in the memory module. Do not use a top-level ADDR_WIDTH parameter, as this is known to cause bugs in some Vivado versions. However, your ADDR_WIDTH in the top_module must contain (or overflow) your memory by the means of log2. (e.g. 2^18 = 262144 > 120000) 
 
 **Step 2: Linker Script (Software) The linksc.ld file partitions the 480KB of hardware memory:**
 ```
