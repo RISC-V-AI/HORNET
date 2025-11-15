@@ -10,8 +10,11 @@ module fpga_top(input M100_clk_i,
                 output led1,led2,led4,
                 output trigger);
 
-parameter SYS_CLK_FREQ = 10000000;
+parameter SYS_CLK_FREQ = 20000000;
 parameter NUM_SLAVES = 6;
+parameter MEMORY_INIT = "memory_init.mem";
+parameter RAM_DEPTH = 120000;
+
 wire temp;
 wire tx_o_tmp;
 wire loader_reset;
@@ -225,7 +228,7 @@ core_wb #(.reset_vector(32'h0))
           .fast_irq_i({15'b0,rx_irq_o}),
           .irq_ack_o(irq_ack_o));
 
-memory_2rw_wb #(.ADDR_WIDTH(18))
+memory_2rw_wb #(.RAM_DEPTH(RAM_DEPTH), .MEMORY_INIT(MEMORY_INIT))
     memory(.port0_wb_cyc_i(wb_cyc_i[0]),
            .port0_wb_stb_i(wb_stb_i[0]),
            .port0_wb_we_i(wb_we_i[0]),

@@ -4,6 +4,8 @@ module barebones_wb_top(input clk_i,
                         input [15:0] fast_irq_i,
                         output irq_ack_o);
 
+parameter MEMORY_INIT = "memory_init_tb.mem";
+parameter RAM_DEPTH = 120000;
 parameter NUM_SLAVES = 4;
 parameter reset_vector = 32'h0000_0000; //The starting address for the program counter
 wire mtip;
@@ -231,7 +233,7 @@ tracer tracer(.clk_i(clk_i),
                 .mem_data(tr_mem_data),
                 .fpu_flags(fflags));
 
-memory_2rw_wb #(.ADDR_WIDTH(18)) memory(.port0_wb_cyc_i(wb_cyc_i[0]),
+memory_2rw_wb #(.RAM_DEPTH(RAM_DEPTH), .MEMORY_INIT(MEMORY_INIT)) memory(.port0_wb_cyc_i(wb_cyc_i[0]),
                                         .port0_wb_stb_i(wb_stb_i[0]),
                                         .port0_wb_we_i(wb_we_i[0]),
                                         .port0_wb_adr_i(wb_adr_i[0]),
@@ -257,8 +259,8 @@ memory_2rw_wb #(.ADDR_WIDTH(18)) memory(.port0_wb_cyc_i(wb_cyc_i[0]),
                                         .port1_wb_rst_i(wb_rst_i[1]),
                                         .port1_wb_clk_i(wb_clk_i[1]));
 
-mtime_registers_wb #(.mtime_adr(32'h0000_8000),
-                     .mtimecmp_adr(32'h0000_8008))
+mtime_registers_wb #(.mtime_adr(32'h1000_8000),
+                     .mtimecmp_adr(32'h1000_8008))
                      mtime_regs(.wb_cyc_i(wb_cyc_i[2]),
                                 .wb_stb_i(wb_stb_i[2]),
                                 .wb_we_i(wb_we_i[2]),
