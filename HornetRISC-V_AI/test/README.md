@@ -29,10 +29,10 @@ The main script (`NSL-KDD_light_send.py`) works by:
 
 ## Requirements
 
-* Python 3.x
-* PySerial: `pip install pyserial`
-* NumPy: `pip install numpy`
-* Scikit-learn: `pip install scikit-learn` (for the V&V script)
+* Python `3.x` (Highly recommend to use as .venv for libraries)
+* PySerial: `pip3 install pyserial`
+* NumPy: `pip3 install numpy`
+* Scikit-learn: `pip3 install scikit-learn` (for the V&V script)
 
 ---------------------------------
 
@@ -132,3 +132,9 @@ python3 compare_all.py --truth labels.txt --c-local label_results.txt --fpga-uar
 
 3.  **Report 3: C-Local (`label_results.txt`) vs. FPGA-UART (`FPGA_results.txt`)**
     * This is the **consistency check**. A 100% accuracy here proves that your hardware is *perfectly* replicating your C-code simulation, with no data corruption or errors from the UART transfer.
+
+## Bitstreams
+
+1. `4DDR_20MHz_Light.bit` Nexys 4 DDR, 20 MHz Hornet, Ligth MLP using UART
+2. `Video_10Mhz_Light.bit` Nexys Video, 10 MHz Hornet, Ligth MLP using UART
+1. `Video_20Mhz_Light.bit` Nexys Video, 20 MHz Hornet, Ligth MLP using UART
