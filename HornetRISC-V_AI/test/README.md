@@ -48,7 +48,7 @@ python NSL-KDD_light_send.py --port COM3 --baud 115200 --inputs inputs.txt --lab
 
 Command (Linux):
 ```
-python3 NSL-KDD_light_send.py --port /dev/ttyUSB0  --baud 115200 --inputs inputs.txt --labels labels.txt --bytes 488 --chunk 64 --delay 0.016 --output FPGA_results.txt
+python3 NSL-KDD_light_send.py --port /dev/ttyUSB0  --baud 115200 --inputs inputs.txt --labels labels.txt --bytes 488 --chunk 64 --delay 0.001 --output FPGA_results.txt
 ```
 
 Argument Explanation:
