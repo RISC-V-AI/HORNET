@@ -6,7 +6,6 @@
 #define USE_KERAS_LAYOUT 1
 #endif
 
-// --- CRITICAL: Use the Folded Weights ---
 #include "MLP_weights_folded.h" 
 
 #include "uart.h"
@@ -38,7 +37,7 @@ volatile float_bytes_t rx_var;
 uart uart0;
 
 // =============================================================================
-// LIGHTWEIGHT MATH HELPERS (NO SQRT, NO EXP)
+// LIGHTWEIGHT MATH HELPERS 
 // =============================================================================
 
 float relu(float x){ return x > 0.0f ? x : 0.0f; }
@@ -47,7 +46,12 @@ void dense_affine(const float *x, int in_dim,
                   const float *w, const float *b,
                   int out_dim, float *y)
 {
-#if USE_KERAS_LAYOUT
+
+// We prefered using TensorFlow/Keras layout for weights, but
+// some users might have transposed weights. Support both. This 
+// has to be design by your Python export script.
+
+    #if USE_KERAS_LAYOUT
     // Keras Layout
     for (int o = 0; o < out_dim; ++o) {
         float acc = b[o];
@@ -72,7 +76,7 @@ void dense_affine(const float *x, int in_dim,
 // =============================================================================
 int model_infer(const float *x)
 {
-    // Define buffers locally (or static if stack is small)
+    // Define buffers locally
     // Note: If you get stack overflow, move these outside the function.
     float z0[L0_OUT];
     float z1[L1_OUT];
@@ -99,7 +103,9 @@ int model_infer(const float *x)
     // Layer 4: Output (Logits only)
     dense_affine(z3, L3_OUT, layer4_weights, layer4_biases, L4_OUT, logits);
 
-    // Argmax (No Softmax needed)
+    
+    // Since we only need the predicted class, we can skip softmax.
+    // The max probability corresponds to the max logit even without softmax.
     int predicted = 0;
     float max_val = logits[0];
     for (int i = 1; i < L4_OUT; ++i) {
@@ -116,18 +122,31 @@ int model_infer(const float *x)
 // MAIN EXECUTION LOOP
 // =============================================================================
 int main() {
-    // 1. Setup
+    // Setup
     SET_MTVEC_VECTOR_MODE();
     count = 0;
     uart_init(&uart0, (uint32_t *) 0x10008010);
 
-    // 2. Hardcoded Test Vector (To verify boot/logic without UART)
+    // Hardcoded Test Vector (To verify boot/logic without UART)
     // This ensures your FPGA is alive immediately after bitstream load.
+    // We used for debugging. Its neither necessary nor useful. But I keep it for sake of easy explanation of debug process.
     float test_input[INPUT_DIM] = { 
-        0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 
-        0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 
-        // ... (truncated for brevity, fills zeros) ...
-        0.0f // Ensure this array is size 122 or fill it properly
+        0.000000f, 1.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 1.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 1.000000f, 0.000000f, 0.000000f, 
+        0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, 0.000000f, -0.110249f, 
+        -0.007762f, -0.004919f, -0.014089f, -0.089486f, -0.007736f, -0.095076f, -0.027023f, -0.809262f, 
+        -0.011664f, -0.036652f, -0.024437f, -0.012385f, -0.026180f, -0.018610f, -0.041221f, 0.000000f, 
+        -0.002817f, -0.097531f, 1.265346f, -0.244204f, -0.637209f, -0.631929f, 2.746403f, 2.715365f, 
+        -1.412415f, -0.016930f, -0.374560f, 0.734343f, -0.954389f, -1.071933f, -0.121485f, -0.480197f, 
+        -0.289103f, -0.639532f, -0.624871f, 2.874410f, 2.753914f 
     };
     // Note: The specific values don't matter for the boot test, 
     // just that it runs without crashing.
@@ -136,7 +155,7 @@ int main() {
     int boot_result = model_infer(test_input);
     uart_transmit_byte(&uart0, (uint8_t) boot_result);
 
-    // 3. Main UART Loop
+    // Main UART Loop
     while(1)
     {
         // Reset counter and Enable Interrupts to start receiving
@@ -147,7 +166,7 @@ int main() {
         // Wait until buffer is full (488 bytes)
         // The ISR will disable interrupts when done.
         while(count < TOTAL_BYTES_TO_RECEIVE) {
-            // Optional: Toggle an LED here to show "Waiting"
+            // For debugging, you can add a GPIO module here to toggle a pin or LED.
             continue; 
         }
         
@@ -173,22 +192,22 @@ void msi_handler() {}
 
 void fast_irq0_handler()
 {
-    // 1. Read Byte
+    // Read Byte
     char *rx_ptr = (char*)(uart0.base_addr) + UART_RX_ADDR_OFFSET;
     char rx_byte = *rx_ptr;
     
-    // 2. Assembly Float
+    // Assembly Float
     rx_var.bytes[count % 4] = rx_byte;
 
-    // 3. Store to Array 
-    // (We write every byte, but the float is only valid every 4th byte. This is fine.)
+    //  Store to Array 
+    
     input_array[count / 4] = rx_var.f;
 
-    // 4. Increment & Check
+    // Increment & Check
     count++;
     
     if (count >= TOTAL_BYTES_TO_RECEIVE) {
-        // Buffer Full: Stop listening to avoid buffer overflow
+        // Buffer Full
         DISABLE_GLOBAL_IRQ();
     }
 }
